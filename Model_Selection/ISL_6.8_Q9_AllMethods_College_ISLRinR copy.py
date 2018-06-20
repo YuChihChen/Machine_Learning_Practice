@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn import linear_model
 import crossvalidation as acv
-import dimensionreduction as add
+import dimensionreduction as adr
 from sklearn.cross_decomposition import PLSRegression
 
 
@@ -61,7 +61,7 @@ print('Lasso: error_mean={}, error_std={}'.format(errors_lasso[0], errors_std_la
 print("============ Q(e) ============")
 m_dims = np.arange(1, len(df_in.columns), 1)
 lm_ols = linear_model.LinearRegression()
-models_pcr = [add.PCR(m_dim, lm_ols) for m_dim in m_dims]
+models_pcr = [adr.PCR(m_dim, lm_ols) for m_dim in m_dims]
 errors_pcr, errors_std_pcr = cv.cv_get_test_errors(models_pcr, 'Apps', plot_=True,lambdas_=m_dims)
 print('PCR: error_mean={}, error_std={}'.format(errors_pcr[3], errors_std_pcr[3]))
 
