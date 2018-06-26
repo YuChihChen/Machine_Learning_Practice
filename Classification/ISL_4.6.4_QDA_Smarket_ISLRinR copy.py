@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
 from sklearn.metrics import confusion_matrix, classification_report
-import Visualization.classificationplot as vplt
+import classificationplot as vplt
 
 # get data
 df_in = pd.read_csv('data/Smarket_ISLRinR.csv', header=0)

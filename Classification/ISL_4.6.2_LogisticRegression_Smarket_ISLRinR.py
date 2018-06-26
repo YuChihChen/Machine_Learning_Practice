@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import statsmodels.tsa.stattools as ts
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, classification_report, precision_score
-import Visualization.classificationplot as vplt
+import classificationplot as vplt
 
 # get data
 df_in = pd.read_csv('data/Smarket_ISLRinR.csv', header=0)
