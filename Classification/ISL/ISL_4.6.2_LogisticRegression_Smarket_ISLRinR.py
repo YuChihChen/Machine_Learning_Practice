@@ -19,15 +19,18 @@ print(df_in.groupby('Year').size())
 df_train = df_in[df_in.Year.isin([2001, 2002, 2003, 2004])].copy()
 df_test  = df_in[df_in.Year == 2005]
 
+
 # split into X and y
 X_train = df_train.iloc[:, 1:3].values
 y_train = df_train.iloc[:, -1].values
 X_test = df_test.iloc[:, 1:3].values
 y_test = df_test.iloc[:, -1].values
 
+
 # ======================== logistic regression ========================
 classifier = LogisticRegression(random_state=0)
 classifier.fit(X_train, y_train)
+print(classifier.predict_proba(X_train))
 print("==================== training data ===========================")
 y_pred = classifier.predict(X_train)
 print(confusion_matrix(y_pred, y_train))
